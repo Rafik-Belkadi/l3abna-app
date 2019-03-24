@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "256127666765",
+    "firebase_url": "https://l3abna-app.firebaseio.com",
+    "project_id": "l3abna-app",
+    "storage_bucket": "l3abna-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256127666765:android:df22ebedafef81e5",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256127666765-2bhiu193rfomglcrfj5hv4264drl8237.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC43g2b8Wj4p5_f8fKLXjIY0fh6JP_3IFE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
