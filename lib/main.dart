@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
 import 'Home.dart';
-import 'Signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() => runApp(MyApp());
@@ -28,7 +27,6 @@ class _MyAppState extends State<MyApp> {
       home: LoginPage(),
       routes: <String, WidgetBuilder>{
         '/home': (_) => new HomePage(),
-        '/signup': (_) => new Signup(),
       },
     );
   }
