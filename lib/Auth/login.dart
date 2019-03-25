@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'Home.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'auth.dart';
 
 class LoginPage extends StatefulWidget {
+
+  LoginPage({this.auth, this.onSignedIn});
+  final BaseAuth auth;
+  final VoidCallback onSignedIn;
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -89,8 +92,8 @@ class _LoginPageState extends State<LoginPage> {
   void signup(BuildContext context) async {
     if (validateAndSave()){
       try {
-        FirebaseUser user = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
-        print('Signed up $user');
+        String userId = await widget.auth.createUserWithEmailAndPassword(_email, _password);
+        widget.onSignedIn();
       }catch(e){
         print(e);
       }
@@ -101,9 +104,8 @@ class _LoginPageState extends State<LoginPage> {
   void login(BuildContext context) async {
     if (validateAndSave()) {
       try {
-        FirebaseUser user = await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: _email, password: _password);
-        print('Signed in ${user.uid}');
+        String userId = await widget.auth.signInWithEmailAndPassword(_email, _password);
+        widget.onSignedIn(); 
       } catch (e) {
         print(e);
       }

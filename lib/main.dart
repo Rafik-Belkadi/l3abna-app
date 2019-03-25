@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
-import 'Home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'root_page.dart';
+import 'Auth/auth.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +18,8 @@ class _MyAppState extends State<MyApp> {
                 labelStyle: new TextStyle(color: Colors.white)
               )
             ),
-      title: 'Test',
-      home: LoginPage(),
-      routes: <String, WidgetBuilder>{
-        '/home': (_) => new HomePage(),
-      },
+      title: 'L3abna?',
+      home: RootPage(auth: new Auth()),
     );
   }
 }
