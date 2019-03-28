@@ -4,6 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'root_page.dart';
 import 'Auth/auth.dart';
 
+import 'Pages/Home.dart';
+
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget{
@@ -20,6 +23,11 @@ class MyApp extends StatelessWidget{
             ),
       title: 'L3abna?',
       home: RootPage(auth: new Auth()),
+      routes: {
+        
+        '/home'         : (context) => HomePage(),
+        
+      },
     );
   }
 }
