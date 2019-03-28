@@ -10,37 +10,19 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        //  Background color
+        backgroundColor: Colors.transparent,
         key: _scaffoldKey,
-        drawer: Drawer(
-          child: ListView(
-            children: <Widget>[
-              UserAccountsDrawerHeader(
-                accountName: Text("Ashish Rawat"),
-                accountEmail: Text("ashishrawat2911@gmail.com"),
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor:
-                      Theme.of(context).platform == TargetPlatform.iOS
-                          ? Colors.blue
-                          : Colors.white,
-                  child: Text(
-                    "A",
-                    style: TextStyle(fontSize: 40.0),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
         //  AppBar
         appBar: AppBar(
+          backgroundColor: Color(0xFF003764),
           actions: <Widget>[
             IconButton(
-              onPressed: () => _scaffoldKey.currentState.openDrawer(),
+              onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
               icon: Icon(
                 Icons.person,
                 color: Colors.white,
@@ -48,20 +30,59 @@ class HomePageState extends State<HomePage> {
             )
           ],
         ),
-
-        //  Body
-        body: new Center(
-          child: new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[],
+        endDrawer: Drawer(
+          child: Directionality(
+            textDirection: TextDirection.ltr,
+            child: ListView(
+              children: <Widget>[
+                UserAccountsDrawerHeader(
+                  decoration: new BoxDecoration(
+                    gradient: new LinearGradient(
+                        colors: [
+                          const Color(0xFF003764),
+                          const Color(0xFF005B7F),
+                          const Color(0xFF003764)
+                        ],
+                        begin: const FractionalOffset(0.0, 0.0),
+                        end: const FractionalOffset(1.0, 0.0),
+                        stops: [0.0, 0.5, 1.0],
+                        tileMode: TileMode.clamp),
+                  ),
+                  accountName: Text("Ashish Rawat"),
+                  accountEmail: Text("ashishrawat2911@gmail.com"),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundColor: Color(0xFF003764),
+                    child: Text(
+                      "A",
+                      style: TextStyle(fontSize: 40.0),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
+
+        //  Body
+        body: Container(
+            decoration: new BoxDecoration(
+          gradient: new LinearGradient(
+              colors: [
+                const Color(0xFF003764),
+                const Color(0xFF005B7F),
+                const Color(0xFF003764)
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(1.0, 0.0),
+              stops: [0.0, 0.5, 1.0],
+              tileMode: TileMode.clamp),
+        )),
         // Body End ------------
 
         // Floating Button section
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Color(0xFF003764),
           onPressed: () {},
           tooltip: 'Increment',
           child: Text('Jouer'),
@@ -74,7 +95,7 @@ class HomePageState extends State<HomePage> {
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
           notchMargin: 4.0,
-          color: Colors.blueAccent,
+          color: Color(0xFF003764),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
